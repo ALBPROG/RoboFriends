@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from '../components/CardList';
 import SearchBar from '../components/SearchBar';
 import Scroll from '../components/Scroll';
+import ErrorBoundry from '../components/ErrorBoundry';
 import '../containers/App.css';
 
 class App extends React.Component {
@@ -40,10 +41,12 @@ onSearchChange = (event) => {
     }else {
     return (
     <div className="tc">
-    <img className="ma3" src="https://fontmeme.com/permalink/200424/808bedf456254b8648f5090830cfd365.png"></img>
+    <img className="ma3" alt="" src="https://fontmeme.com/permalink/200424/808bedf456254b8648f5090830cfd365.png"></img>
     <SearchBar searchChange = {this.onSearchChange}/>
     <Scroll>
+    <ErrorBoundry>
     <CardList robots = {filterRobots}/>
+    </ErrorBoundry>
     </Scroll>
     </div>
     )
